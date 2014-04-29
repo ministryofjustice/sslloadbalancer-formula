@@ -2,6 +2,7 @@ include:
   - nginx
   - repos
   - logstash.client
+  - firewall
 
 
 /etc/ssl/certs/ssl.key:
