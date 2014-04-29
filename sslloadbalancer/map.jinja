@@ -1,0 +1,7 @@
+{% set nginx = salt['grains.filter_by']({
+    'Debian': {
+      'loadbalancers': {},
+    },
+    'default': 'Debian',
+}, merge=salt['pillar.get']('nginx',{})) %}
+
