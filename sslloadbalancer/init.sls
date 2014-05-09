@@ -4,6 +4,17 @@ include:
   - logstash.client
   - firewall
 
+{% if salt['pillar.get']('deploy:ssl:dhparams') %}
+/etc/nginx/dhparams.pem:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 0600
+    - contents_pillar: deploy:ssl:dhparams
+    - watch_in:
+      - service: nginx
+{% endif %}
+
 
 /etc/ssl/certs/ssl.key:
   file:
