@@ -10,8 +10,9 @@ pillar::
 
     nginx:
         loadbalancers:
-            lbfront:
-                - 1.2.3.4:80
+            front:
+                servers:
+                    - 1.2.3.4:80
 
     deploy:
         ssl:
