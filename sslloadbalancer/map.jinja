@@ -1,6 +1,11 @@
 {% set nginx = salt['grains.filter_by']({
     'Debian': {
-      'loadbalancers': {},
+      'loadbalancers': {
+        'lbfront': {
+          'https_port': None,
+          'servers': [],
+        }
+      },
     },
     'default': 'Debian',
 }, merge=salt['pillar.get']('nginx',{})) %}
