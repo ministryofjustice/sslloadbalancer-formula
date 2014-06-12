@@ -51,8 +51,8 @@ include:
 
 
 {% from 'logstash/lib.sls' import logship with context %}
-{{ logship('nginx-ssl-access.log', '/var/log/nginx/ssl.access.log', 'nginx', ['nginx','ssl','loadbalancer','sslloadbalancer','access'], 'rawjson') }}
-{{ logship('nginx-ssl-error.log', '/var/log/nginx/ssl.error.log', 'nginx', ['nginx','ssl','loadbalancer','sslloadbalancer','error'], 'json') }}
+{{ logship('sslloadbalancer-access', '/var/log/nginx/ssl.access.json', 'nginx', ['nginx','ssl','loadbalancer','sslloadbalancer','access'], 'rawjson') }}
+{{ logship('sslloadbalancer-error', '/var/log/nginx/ssl.error.log', 'nginx', ['nginx','ssl','loadbalancer','sslloadbalancer','error'], 'json') }}
 
 
 {% from 'firewall/lib.sls' import firewall_enable with  context %}
