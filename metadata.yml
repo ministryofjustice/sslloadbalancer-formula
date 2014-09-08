@@ -1,2 +1,5 @@
 dependencies:
 - git@github.com:ministryofjustice/nginx-formula.git
+
+entry:
+ - sslloadbalancer
