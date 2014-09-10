@@ -1,3 +1,7 @@
+## Version 2.1.0
+
+* Enable http/https redirection to a canonical_host
+
 ## Version 2.0.0
 
 * Pass through real_ip, real_forwarded_for, real_forwarded_proto, $http_host (not $host)
