@@ -1,6 +1,7 @@
 {% set nginx = salt['grains.filter_by']({
     'Debian': {
       'loadbalancers': {
+        'redirect_to_www': False,
         'front': {
           'https_port': None,
           'servers': [],
