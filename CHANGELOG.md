@@ -1,6 +1,6 @@
 ## Version 2.0.0
 
-* Enable http redirection to www.$host if needed
+* Enable http/https redirection to www.$host if needed
 
 ## Version 2.0.0
 
