@@ -49,6 +49,17 @@ include:
     - watch_in:
       - service: nginx
 
+/etc/nginx/conf.d/backend_sslloadbalancer.conf:
+  file:
+    - managed
+    - source: salt://sslloadbalancer/templates/backend_sslloadbalancer.conf
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+    - watch_in:
+      - service: nginx
+
 
 {% from 'logstash/lib.sls' import logship with context %}
 {{ logship('sslloadbalancer-access', '/var/log/nginx/ssl.access.json', 'nginx', ['nginx','ssl','loadbalancer','sslloadbalancer','access'], 'rawjson') }}
