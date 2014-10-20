@@ -1,6 +1,10 @@
-## Version 2.1.0
+## CURRENT
 
 * Enable http/https redirection to a canonical_host
+
+## Version 2.1.0
+
+* Disable SSLv3 due to poodlebleed
 
 ## Version 2.0.0
 
