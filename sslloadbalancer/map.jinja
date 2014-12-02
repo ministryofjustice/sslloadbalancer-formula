@@ -4,10 +4,7 @@
         'front': {
           'https_port': None,
           'servers': [],
-        },
-        'client_max_body_size': '50k',
-      },
-    },
+    }
     'default': 'Debian',
 }, merge=salt['pillar.get']('nginx',{})) %}
 
