@@ -38,10 +38,37 @@ include:
       - service: nginx
 
 
+{%- if grains['host'] == 'lb-pub-01' %}
+/etc/ssl/certs/ssl.callmeback.key:
+  file:
+    - managed
+    - user: root
+    - group: root
+    - mode: 644
+    - contents_pillar: deploy_callmeback:ssl:key
+    - watch_in:
+      - service: nginx
+
+
+/etc/ssl/certs/ssl.callmeback.crt:
+  file:
+    - managed
+    - user: root
+    - group: root
+    - mode: 644
+    - contents_pillar: deploy_callmeback:ssl:crt
+    - watch_in:
+      - service: nginx
+{%- endif %}
+
 /etc/nginx/conf.d/sslloadbalancer.conf:
   file:
     - managed
+    {%- if grains['host'] == 'lb-pub-01' %}
+    - source: salt://sslloadbalancer/templates/public_sslloadbalancer.conf
+    {%- else %}
     - source: salt://sslloadbalancer/templates/sslloadbalancer.conf
+    {%- endif %}
     - template: jinja
     - user: root
     - group: root
